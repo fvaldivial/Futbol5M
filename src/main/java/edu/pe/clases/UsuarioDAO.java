@@ -67,16 +67,16 @@ public class UsuarioDAO implements UsuarioIF {
     }
 
     @Override
-    public DBObject getInfo(UsuarioBean u) {
+    public DBObject getInfo(String usuario) {
         try {
             inicializar();
         } catch (UnknownHostException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        DBObject userc = usuarios.findOne(new BasicDBObject("_id", u.getUsuario()));
-
-        return userc;
+        DBObject d = usuarios.findOne(new BasicDBObject("_id", usuario));
+       
+        return d;
     }
 
     @Override
@@ -86,17 +86,17 @@ public class UsuarioDAO implements UsuarioIF {
         } catch (UnknownHostException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         UsuarioBean u = new UsuarioBean();
 
         DBObject d = usuarios.findOne(new BasicDBObject("_id", username));
-        
-            u.setUsuario((String) d.get("_id"));
-            u.setDni((String) d.get("dni"));
-            u.setEmail((String) d.get("email"));
-            u.setNombre((String) d.get("nombre"));
-            u.setTelefono((String) d.get("telf"));
-            u.setDireccion((String) d.get("direccion"));
+
+        u.setUsuario((String) d.get("_id"));
+        u.setDni((String) d.get("dni"));
+        u.setEmail((String) d.get("email"));
+        u.setNombre((String) d.get("nombre"));
+        u.setTelefono((String) d.get("telf"));
+        u.setDireccion((String) d.get("direccion"));
 
         return u;
     }
@@ -111,5 +111,4 @@ public class UsuarioDAO implements UsuarioIF {
 
         return null;
     }
-
 }

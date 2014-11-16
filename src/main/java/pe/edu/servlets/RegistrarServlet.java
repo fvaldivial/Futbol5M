@@ -27,8 +27,7 @@ public class RegistrarServlet extends HttpServlet {
    
     //el que viene de inscripcion
     //1. Envia a pagina de felicilitacion y pasa al index
-    //2. Envia a pagina de error y regreso
-     
+    //2. Envia a pagina de error y regreso     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,7 +51,7 @@ public class RegistrarServlet extends HttpServlet {
         
          UsuarioIF ui = new UsuarioDAO();
             
-         if(pass.equals(passc) && ui.getInfo(u) == null){         
+         if(pass.equals(passc) && ui.getInfo(u.getUsuario()) == null){         
            
             ui.registrar(u,pass);
             

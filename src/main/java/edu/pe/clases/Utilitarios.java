@@ -74,4 +74,20 @@ public class Utilitarios {
         canchas.insert(partido);
 
     }
+    
+    public static UsuarioBean rellenarUsuario(DBObject d){
+             
+        UsuarioBean u = new UsuarioBean();
+        
+        u.setUsuario((String) d.get("_id"));
+        u.setDni((String) d.get("dni"));
+        u.setEmail((String) d.get("email"));
+        u.setNombre((String) d.get("nombre"));
+        u.setTelefono((String) d.get("telf"));
+        u.setDireccion((String) d.get("direccion"));
+        
+        return u;
+    }
+    
+    
 }

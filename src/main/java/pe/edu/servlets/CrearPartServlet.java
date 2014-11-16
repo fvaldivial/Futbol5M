@@ -38,12 +38,12 @@ public class CrearPartServlet extends HttpServlet {
         //El DAO de partidos debe tener un metodo para sacar la lista de canchas que estan en la BD
         PartidosDAO p = new PartidosDAO();
 
-        //Deberia ser
-        //List l = p.canchas();
+        //Busca la lista de canchas registradas
         List l = p.buscarCanchas();
 
-        request.setAttribute("usuario", request.getParameter("usuario"));
+//      request.setAttribute("usuario", request.getParameter("usuario"));
         request.setAttribute("canchas", l);
+
 
         RequestDispatcher rd = request.getRequestDispatcher("partidos.jsp");
         rd.forward(request, response);
@@ -64,23 +64,18 @@ public class CrearPartServlet extends HttpServlet {
         p1.setAdmin(request.getParameter("usuario"));
         p1.setTurno(Integer.parseInt(request.getParameter("turnos")));
 
-//       
 //        ArrayList jug = new ArrayList();
-//
-//        //metele los jugadores aqui
+//        metele los jugadores aqui
 
-        
-       
-            
-           
-        
-
+        //Falta un metodo de comprobar la disponibilidad de canchas 
+        //Falta un metodo de comprobar la disponibilidad de canchas 
+        //Falta un metodo de comprobar la disponibilidad de canchas 
+        //Falta un metodo de comprobar la disponibilidad de canchas 
         p.crearPartido(p1);
 
-        request.setAttribute("usuario", request.getParameter("usuario"));
         request.setAttribute("servlet", "algo");
 
-        RequestDispatcher rd = request.getRequestDispatcher("LoginServlet");
+        RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
         rd.forward(request, response);
     }
 }

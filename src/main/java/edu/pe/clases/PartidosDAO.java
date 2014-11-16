@@ -104,29 +104,29 @@ public class PartidosDAO implements PartidosIF {
         return PB;
     }
 
-//    public List obtenerJugadores(String id) {
-//        try {
-//            inicializar();
-//        } catch (UnknownHostException ex) {
-//            Logger.getLogger(PartidosDAO.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        List<PartidoBean> usuarios = new ArrayList<PartidoBean>();
-//
-//        BasicDBObject query = new BasicDBObject("_id", id);
-//
-//        DBCursor cursor = partidos.find(query);
-//
-//        try {
-//            while (cursor.hasNext()) {
-//                cursor.next().get("jugadores");
-//            }
-//        } finally {
-//            cursor.close();
-//        }
-//
-//        return PB;
-//    }
+    public List obtenerJugadores(String id) {
+        try {
+            inicializar();
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(PartidosDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        List<PartidoBean> usuarios = new ArrayList<PartidoBean>();
+
+        BasicDBObject query = new BasicDBObject("_id", id);
+
+        DBCursor cursor = partidos.find(query);
+
+        try {
+            while (cursor.hasNext()) {
+                cursor.next().get("jugadores");
+            }
+        } finally {
+            cursor.close();
+        }
+
+        return PB;
+    }
 
     public List listarPartidosXUsuario(String admin) {
         try {

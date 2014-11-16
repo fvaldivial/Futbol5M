@@ -35,8 +35,6 @@ public class PartidoServlet extends HttpServlet {
               
         List l = p.listarPartidos();
         
-        request.setAttribute("usuario", request.getParameter("usuario"));
-        System.out.println("este es el usuario " +request.getParameter("usuario"));
         request.setAttribute("partidos", l);
         
         RequestDispatcher rd = request.getRequestDispatcher("listapartidos.jsp");
@@ -44,7 +42,7 @@ public class PartidoServlet extends HttpServlet {
              
     }
 
-   //
+   //???
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

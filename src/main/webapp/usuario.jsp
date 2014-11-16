@@ -17,7 +17,7 @@
 
         <link href="css/mine.css" rel="stylesheet">
 
-        <%UsuarioBean usu = (UsuarioBean) request.getAttribute("usuario");%>
+        <%UsuarioBean usu = (UsuarioBean) request.getSession(true).getAttribute("usuario");%>
 
         <%---  ---%>
 

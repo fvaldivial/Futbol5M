@@ -4,6 +4,7 @@
     Author     : Rafael
 --%>
 
+<%@page import="pe.edu.bean.UsuarioBean"%>
 <%@page import="pe.edu.bean.PartidoBean"%>
 <%@page import="pe.edu.bean.CanchaBean"%>
 <%@page import="java.util.ArrayList"%>
@@ -19,7 +20,8 @@
         <link href="css/mine.css" rel="stylesheet">
 
         <%List l = (List) request.getAttribute("partidos");%>
-        <%String usuario = (String) request.getAttribute("usuario");%>
+        <%UsuarioBean usu = (UsuarioBean) request.getSession(true).getAttribute("usuario");%>
+        <%String usuario = usu.getUsuario();%>
 
         <%---  ---%>
 
@@ -46,13 +48,13 @@
                     </div>
 
                     <div class="panel-body">
-                        
-                            <div class=" col-md-9 col-lg-9 "> 
-                                <table class="table table-user-information">
-                                    <tbody>
-                                        
-                 <%-- hijo (rafael) esto te manda al metodo post lo puse aca para que lo veas mas rapido--%>
-                                    <form  method="post" action="PartInsServlet" >
+
+                        <div class=" col-md-9 col-lg-9 "> 
+                            <table class="table table-user-information">
+                                <tbody>
+
+                                    <%-- hijo (rafael) esto te manda al metodo post lo puse aca para que lo veas mas rapido--%>
+                                <form  method="post" action="PartInsServlet" >
 
 
                                     <input type="hidden" name="usuario" value="<%= usuario%>" />      
@@ -63,7 +65,7 @@
                                             a = (PartidoBean) l.get(i);%>
 
                                     <label>FECHA: <%= a.getFechai().toString()%></label>
-                                        <input type="hidden" name="partido" value="<%= a%>" />  
+                                    <input type="hidden" name="partido" value="<%= a%>" />  
                                     <br>
 
                                     <label>LUGAR: <%= a.getCancha()%></label>
@@ -79,7 +81,7 @@
 
                                         <button type="submit" class="btn btn-default" value="ver">Detalles</button>
 
-                                        <input type="hidden" name="partido" value="<%= a.getId()%>" />                                                        
+                                        <input type="hidden" name="partido" value="<%= a %>" />                                                        
 
 
 
@@ -89,18 +91,18 @@
                                     <br>
 
                                     <% }%>
-                                    </form>
-                                    </tbody>
+                                </form>
+                                </tbody>
 
 
-                                </table>
+                            </table>
 
-                                <form method="post" action="LoginServlet">          
+                            <form method="post" action="LoginServlet">          
 
-                                    <button type="submit" name="usuario" class="btn btn-default" value="<%=usuario%>">volver</button>
+                                <button type="submit" name="usuario" class="btn btn-default" value="<%=usuario%>">volver</button>
 
-                                </form>   
-                            </div>
+                            </form>   
+                        </div>
 
                     </div>
 

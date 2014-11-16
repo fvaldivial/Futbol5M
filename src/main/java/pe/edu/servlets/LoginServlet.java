@@ -41,65 +41,33 @@ public class LoginServlet extends HttpServlet {
 
         //Paso 2: recuperar datos
         UsuarioBean u = new UsuarioBean();
-        u.setUsuario(request.getParameter("usuario"));
         String pass = request.getParameter("password");
 
         //Paso 3: logica
 
         UsuarioIF ui = new UsuarioDAO();
-        DBObject d = ui.getInfo(u);
+        DBObject d = ui.getInfo(request.getParameter("usuario"));
 
         PartidosDAO p = new PartidosDAO();
         
         
-       //System.out.println(Utilitarios.password(pass,u,d));
+       System.out.println("mira debajo de esto hermano");
+        System.out.println(d != null);
+        System.out.println( Utilitarios.password(pass, u, d));
 
         if (d != null && Utilitarios.password(pass, u, d)) {
 
-            u.setUsuario((String) d.get("_id"));
-            u.setDni((String) d.get("dni"));
-            u.setEmail((String) d.get("email"));
-            u.setNombre((String) d.get("nombre"));
-            u.setTelefono((String) d.get("telf"));
-            u.setDireccion((String) d.get("direccion"));
-//            String[] a = {"1", "2"};
-//            u.setPartidos(a);
-
+            u = Utilitarios.rellenarUsuario(d);            
             u.setPartidos( p.listarPartidosXUsuario(u.getUsuario()));
             
-            request.setAttribute("usuario", u);
-
-            System.out.println(u.getDni());
-            System.out.println(u.getUsuario());
-            System.out.println(u.getTelefono());
-
+            s.setAttribute("usuario", u);
+            System.out.println("dni : " + u.getDni());
+            System.out.println("usuario : " + u.getUsuario());
 
             RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
             rd.forward(request, response);
 
-        } else if(d != null && request.getAttribute("servlet") != null) { 
-                        u.setUsuario((String) d.get("_id"));
-            u.setDni((String) d.get("dni"));
-            u.setEmail((String) d.get("email"));
-            u.setNombre((String) d.get("nombre"));
-            u.setTelefono((String) d.get("telf"));
-            u.setDireccion((String) d.get("direccion"));
-//            String[] a = {"1", "2"};
-//            u.setPartidos(a);
-
-            u.setPartidos( p.listarPartidosXUsuario(u.getUsuario()));
-            
-            request.setAttribute("usuario", u);
-
-            System.out.println(u.getDni());
-            System.out.println(u.getUsuario());
-            System.out.println(u.getTelefono());
-
-
-            RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
-            rd.forward(request, response);
-            
-        }else {
+        } else{ 
 
             PrintWriter out = response.getWriter();
             out.println("<html>");
@@ -116,13 +84,7 @@ public class LoginServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
 
-        }
-
-
-
-
-
-        
+        }        
     }
 
     

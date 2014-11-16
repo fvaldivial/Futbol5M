@@ -15,7 +15,7 @@ public interface UsuarioIF {
         
     public void registrar(UsuarioBean u,String pass);
     
-    public DBObject getInfo(UsuarioBean u);
+    public DBObject getInfo(String usuario);
     
     public UsuarioBean getInfo2(String username);
     

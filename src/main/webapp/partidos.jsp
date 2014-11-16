@@ -4,6 +4,7 @@
     Author     : GooMoonRyong
 --%>
 
+<%@page import="pe.edu.bean.UsuarioBean"%>
 <%@page import="pe.edu.bean.PartidoBean"%>
 <%@page import="pe.edu.bean.CanchaBean"%>
 <%@page import="java.util.ArrayList"%>
@@ -18,7 +19,8 @@
 
         <link href="css/mine.css" rel="stylesheet">
 
-        <%String usuario = (String) request.getAttribute("usuario");%>
+        <%UsuarioBean usu = (UsuarioBean) request.getSession(true).getAttribute("usuario");%>
+        <%String usuario = usu.getUsuario();%>
         <%List l = (List) request.getAttribute("canchas");%>
         <%--List l = new ArrayList();--%>
         <%CanchaBean a;%>
@@ -86,7 +88,7 @@
                                 <div class="btn-group">
                                     <button type="submit" class="btn btn-default" value="crear">Crear</button>
                                     <button type="reset" class="btn btn-default" value="Limpiar">Limpiar</button>
-                                    <a href="LoginServlet?usuario=<%=usuario%>" class="btn btn-default" >salir</a>
+                                    <a href="usuario.jsp" class="btn btn-default" >salir</a>
                                 </div>   
 
 
