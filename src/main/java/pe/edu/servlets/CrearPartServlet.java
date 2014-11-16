@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import pe.edu.bean.PartidoBean;
+import pe.edu.bean.UsuarioBean;
 
 /**
  *
@@ -72,8 +73,10 @@ public class CrearPartServlet extends HttpServlet {
         //Falta un metodo de comprobar la disponibilidad de canchas 
         //Falta un metodo de comprobar la disponibilidad de canchas 
         p.crearPartido(p1);
-
-        request.setAttribute("servlet", "algo");
+        
+        UsuarioBean u = (UsuarioBean) s.getAttribute("usuario");
+        u.setPartidos(p.listarPartidosXUsuario(u.getUsuario()));
+        s.setAttribute("usuario", u);
 
         RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
         rd.forward(request, response);

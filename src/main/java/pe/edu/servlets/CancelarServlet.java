@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pe.edu.bean.UsuarioBean;
 
 /**
  *
@@ -34,10 +35,12 @@ public class CancelarServlet extends HttpServlet {
         p.cancelarPartido(request.getParameter("partido"));
         System.out.println("partido id : " + request.getParameter("partido"));
         
-        request.setAttribute("usuario", request.getParameter("usuario"));
-        request.setAttribute("servlet","algo");
+        UsuarioBean u = (UsuarioBean) s.getAttribute("usuario");
+        u.setPartidos(p.listarPartidosXUsuario(u.getUsuario()));
+        s.setAttribute("usuario", u);
         
-        RequestDispatcher rd = request.getRequestDispatcher("LoginServlet");    
+        
+        RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");    
         rd.forward(request, response);
        
     }

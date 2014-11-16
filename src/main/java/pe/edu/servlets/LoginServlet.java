@@ -11,9 +11,6 @@ import edu.pe.clases.UsuarioIF;
 import edu.pe.clases.Utilitarios;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.UnknownHostException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,9 +48,9 @@ public class LoginServlet extends HttpServlet {
         PartidosDAO p = new PartidosDAO();
         
         
-       System.out.println("mira debajo de esto hermano");
-        System.out.println(d != null);
-        System.out.println( Utilitarios.password(pass, u, d));
+//       System.out.println("mira debajo de esto hermano");
+//        System.out.println(d != null);
+//        System.out.println( Utilitarios.password(pass, u, d));
 
         if (d != null && Utilitarios.password(pass, u, d)) {
 
@@ -61,8 +58,8 @@ public class LoginServlet extends HttpServlet {
             u.setPartidos( p.listarPartidosXUsuario(u.getUsuario()));
             
             s.setAttribute("usuario", u);
-            System.out.println("dni : " + u.getDni());
-            System.out.println("usuario : " + u.getUsuario());
+//            System.out.println("dni : " + u.getDni());
+//            System.out.println("usuario : " + u.getUsuario());
 
             RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
             rd.forward(request, response);

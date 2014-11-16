@@ -97,11 +97,9 @@
 
                             </table>
 
-                            <form method="post" action="LoginServlet">          
+                            <a href="usuario.jsp" class="btn btn-default" >salir</a>
 
-                                <button type="submit" name="usuario" class="btn btn-default" value="<%=usuario%>">volver</button>
-
-                            </form>   
+                            
                         </div>
 
                     </div>

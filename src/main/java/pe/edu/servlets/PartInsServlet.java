@@ -64,41 +64,41 @@ public class PartInsServlet extends HttpServlet {
         
         PartidosIF pa = new PartidosDAO();
 //        
-        //aca debe ir el metodo del DAO que saque una lista con los usuarios inscritos para el partido
-        List l = pa.getUsuarios();
-        
-        for(int i = 0 ; i < l.size ; i++){
-            if(l.get(i).equals(u.getUsuario())){
-                inscrito = true;
-            }
-        }
-        
-        if(inscrito == false){
-            //Usando el metodo del DAO que inscribe al partido
-            a.inscribir(u.getUsuario());
-            //luego lo mandas a su pagina
-            RequestDispatcher rd = request.getRequestDispatcher("LoginServlet");
-            rd.forward(request, response);
-        }else{
-            //Pagina de no puedes intentalo nuevamente
-            PrintWriter out = response.getWriter();
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>!!!Ya estas inscrito!!!</title>");
-            out.println("<link href=\"css/landing-page.css\" rel=\"stylesheet\">");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<div class=\"intro-header\">");
-            out.println("<h1> Ya estas inscrito en este partido y no puedes inscribirte nuevamente </h1>");
-            out.println("<h1> regrese al listado de partidos </h1>");
-            out.println("<a href= 'PartidoServlet?usuario=" + u.getUsuario() + "'>Intentarlo de nuevo</a>");
-            out.println("</div>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-        
-        
-        
+//        //aca debe ir el metodo del DAO que saque una lista con los usuarios inscritos para el partido
+//        List l = pa.getUsuarios();
+//        
+//        for(int i = 0 ; i < l.size ; i++){
+//            if(l.get(i).equals(u.getUsuario())){
+//                inscrito = true;
+//            }
+//        }
+//        
+//        if(inscrito == false){
+//            //Usando el metodo del DAO que inscribe al partido
+//            a.inscribir(u.getUsuario());
+//            //luego lo mandas a su pagina
+//            RequestDispatcher rd = request.getRequestDispatcher("LoginServlet");
+//            rd.forward(request, response);
+//        }else{
+//            //Pagina de no puedes intentalo nuevamente
+//            PrintWriter out = response.getWriter();
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>!!!Ya estas inscrito!!!</title>");
+//            out.println("<link href=\"css/landing-page.css\" rel=\"stylesheet\">");
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<div class=\"intro-header\">");
+//            out.println("<h1> Ya estas inscrito en este partido y no puedes inscribirte nuevamente </h1>");
+//            out.println("<h1> regrese al listado de partidos </h1>");
+//            out.println("<a href= 'PartidoServlet?usuario=" + u.getUsuario() + "'>Intentarlo de nuevo</a>");
+//            out.println("</div>");
+//            out.println("</body>");
+//            out.println("</html>");
+//        }
+//        
+//        
+//        
         
         
     }
