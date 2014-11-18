@@ -75,6 +75,7 @@ public class PartidosDAO implements PartidosIF {
         partidos.insert(partido);
     }
 
+    @Override
     public List listarPartidos() {
         try {
             inicializar();
@@ -129,6 +130,7 @@ public class PartidosDAO implements PartidosIF {
 //        return PB;
 //    }
 
+    @Override
     public List listarPartidosXUsuario(String admin) {
         try {
             inicializar();
@@ -170,13 +172,14 @@ public class PartidosDAO implements PartidosIF {
             inicializar();
             BasicDBObject query = new BasicDBObject();
             query.put("_id", id);
-            partidos.remove(query);
+            partidos.remove(new BasicDBObject().append("_id", id));
         } catch (UnknownHostException ex) {
             Logger.getLogger(PartidosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
+    @Override
     public List buscarCanchas() {
         try {
             inicializar();
@@ -204,6 +207,7 @@ public class PartidosDAO implements PartidosIF {
         return PB;
     }
 
+    @Override
     public void anadirSolidario(String dni) {
         try {
             inicializar();
@@ -217,6 +221,7 @@ public class PartidosDAO implements PartidosIF {
 
     }
 
+    @Override
     public List obtenerSolidario() {
 
         List lista = new ArrayList();

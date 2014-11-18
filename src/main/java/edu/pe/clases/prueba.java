@@ -18,15 +18,18 @@ public class prueba {
     
     public static void main(String[] args){
     
-               CanchaBean a;
-        for(int i = 0;i < 5; i++){
-                a = new CanchaBean(i + " " + Math.random(), "pepes " + i);
-            try {
-                Utilitarios.crearCanchas(a);
-            } catch (UnknownHostException ex) {
-                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+//               CanchaBean a;
+//        for(int i = 0;i < 5; i++){
+//                a = new CanchaBean(i + " " + Math.random(), "pepes " + i);
+//            try {
+//                Utilitarios.crearCanchas(a);
+//            } catch (UnknownHostException ex) {
+//                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+        
+        PartidosDAO p = new PartidosDAO();
+        p.cancelarPartido("546937abf7858f73c6f410f0");
     
     }
     
