@@ -54,7 +54,7 @@
                                 <tbody>
 
                                     <%-- hijo (rafael) esto te manda al metodo post lo puse aca para que lo veas mas rapido--%>
-                                <form  method="post" action="PartInsServlet" >
+                                
 
 
                                     <input type="hidden" name="usuario" value="<%= usuario%>" />      
@@ -63,7 +63,7 @@
 
                                             PartidoBean a;
                                             a = (PartidoBean) l.get(i);%>
-
+                             <form  method="post" action="PartInsServlet" >
                                     <label>FECHA: <%= a.getFechai().toString()%></label>
                                     <input type="hidden" name="partido" value="<%= a%>" />  
                                     <br>
@@ -89,9 +89,9 @@
 
 
                                     <br>
-
-                                    <% }%>
                                 </form>
+                                    <% }%>
+                                
                                 </tbody>
 
 

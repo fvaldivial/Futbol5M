@@ -44,11 +44,15 @@
                                 <li class="dropdown">
                                     <a href="#" data-toggle="dropdown">Inscripcion<span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="PartidoServlet?usuario=<%=usu.getUsuario()%>">Forma normal</a></li>
-                                        <li><a href="PartInsServlet?usuario=<%=usu.getUsuario()%>">Forma solidaria</a></li>
+                                        <li><a href="PartidoServlet">Forma normal</a></li>
+                                        <li><a href="PartInsServlet">Forma solidaria</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="index.html" >Salir</a></li>
+                                <form action="LoginServlet" method="Post">
+                                    <li><button type="submit" class="btn btn-default">Salir</button></li>
+                                    
+                                </form>
+                                
                             </ul>
                             
                             </span>
@@ -98,7 +102,7 @@
 
                                         <tr>
                                             <td>Fecha de Nacimiento : </td>
-                                            <td>30/01/1994</td>
+                                            <td>deberias contarnoslo</td>
                                         </tr>
 
                                         <tr>

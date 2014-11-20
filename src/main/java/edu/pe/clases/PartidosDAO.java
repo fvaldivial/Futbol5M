@@ -208,7 +208,7 @@ public class PartidosDAO implements PartidosIF {
     }
 
     @Override
-    public void anadirSolidario(String dni) {
+    public void anadirSolidario(String usuario) {
         try {
             inicializar();
         } catch (UnknownHostException ex) {
@@ -216,9 +216,9 @@ public class PartidosDAO implements PartidosIF {
         }
         Date ahora = new Date();
 
-        BasicDBObject solidario = new BasicDBObject();
-        solidario.append("_id", dni).append("fecha", ahora);
-
+        BasicDBObject solidar = new BasicDBObject();
+        solidar.append("_id", usuario).append("fecha", ahora);
+        solidario.insert(solidar);
     }
 
     @Override
@@ -226,15 +226,13 @@ public class PartidosDAO implements PartidosIF {
 
         List lista = new ArrayList();
 
-        BasicDBObject sortFecha = new BasicDBObject();
-        sortFecha.put("fecha", -1);
+       BasicDBObject sortFecha = new BasicDBObject();
+       sortFecha.put("fecha", -1);//????
 
-        DBCursor cur = solidario.find().sort(sortFecha);
+        DBCursor cur = solidario.find();
 
-        int i = 0;
-        while (cur.hasNext() && i < cur.length()) {
-            lista.add(cur.next().get("dni"));
-
+        while (cur.hasNext()) {
+            lista.add(cur.next().get("_id"));
         }
 
         return lista;

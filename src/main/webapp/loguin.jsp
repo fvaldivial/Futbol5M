@@ -1,3 +1,10 @@
+<%-- 
+    Document   : loguin
+    Created on : 19/11/2014, 09:59:29 PM
+    Author     : GooMoonRyong
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +15,20 @@
 
         <link href="css/landing-page.css" rel="stylesheet">
 
+<%
+    
+    String sesion = (String) request.getSession(true).getAttribute("sesion");
 
+    if(sesion != null){
+        
+         RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
+         rd.forward(request, response);
+        
+    }
+        
+%>
+        
+        
     </head>
     <body>
         <div class="intro-header">
@@ -46,3 +66,4 @@
 
     </body>
 </html>
+

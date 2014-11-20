@@ -28,8 +28,11 @@ public class prueba {
 //            }
 //        }
         
+//        PartidosDAO p = new PartidosDAO();
+//        p.cancelarPartido("546937abf7858f73c6f410f0");
+        
         PartidosDAO p = new PartidosDAO();
-        p.cancelarPartido("546937abf7858f73c6f410f0");
+        p.anadirSolidario("berserker");
     
     }
     

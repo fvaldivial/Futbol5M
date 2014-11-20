@@ -21,10 +21,11 @@ import javax.servlet.http.HttpSession;
 import pe.edu.bean.CanchaBean;
 import pe.edu.bean.UsuarioBean;
 
+
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 
-    //Viene de login.html
+    //Viene de login.jsp
     //el if verifica si devolvio algo el id de usuario y si es que la contraseña corresponde a la guardada
     //1. Envia a usuario.jsp
     //2. Envia a pagina de error y luego de regreso.
@@ -57,6 +58,8 @@ public class LoginServlet extends HttpServlet {
             u = Utilitarios.rellenarUsuario(d);            
             u.setPartidos( p.listarPartidosXUsuario(u.getUsuario()));
             
+                
+            s.setAttribute("sesion", "escribi algo");
             s.setAttribute("usuario", u);
 //            System.out.println("dni : " + u.getDni());
 //            System.out.println("usuario : " + u.getUsuario());
@@ -85,8 +88,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     
-    //Debe venir de los botones regresar en la lista de partidos o la creacion de partidos
-    //Asi tambien debe venir despues de la correcta inscripcion de partido o creacion de este
+    //Este sirve para salir de todo
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -94,34 +96,16 @@ public class LoginServlet extends HttpServlet {
         HttpSession s = request.getSession(true);
 
         //Paso 2: recuperar datos
-        UsuarioBean u = new UsuarioBean();
-        u.setUsuario((String) request.getAttribute("usuario"));
+        
 
         //Paso 3: logica
 
-        UsuarioIF ui = new UsuarioDAO();
-        u = ui.getInfo2((String) request.getAttribute("usuario"));
-        
-        PartidosDAO p = new PartidosDAO();
-        u.setPartidos( p.listarPartidosXUsuario(u.getUsuario()));
-
-       //System.out.println(Utilitarios.password(pass,u,d));
-//            u.setDni((String) d.get("dni"));
-//            u.setEmail((String) d.get("email"));
-//            u.setNombre((String) d.get("nombre"));
-//            u.setTelefono((String) d.get("telf"));
-//            u.setDireccion((String) d.get("direccion"));
-            //String[] a = {"1", "2"};
-            //u.setPartidos(a);
-
-            request.setAttribute("usuario", u);
-
-            System.out.println(u.getDni());
-            System.out.println(u.getUsuario());
-            System.out.println(u.getTelefono());
 
 
-            RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
+            s.setAttribute("sesion", null);
+
+
+            RequestDispatcher rd = request.getRequestDispatcher("index.html");
             rd.forward(request, response);
             
 
