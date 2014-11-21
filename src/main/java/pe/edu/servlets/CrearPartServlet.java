@@ -28,7 +28,7 @@ import pe.edu.bean.UsuarioBean;
 @WebServlet(name = "InscServlet", urlPatterns = {"/InscServlet"})
 public class CrearPartServlet extends HttpServlet {
 
-    //Viene de usuario.jsp de la pestaña crear partido
+    //Viene de usuario.jsp de la pestaa crear partido
     //saca las canchas de la BD y envia las a partidos.jsp
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
