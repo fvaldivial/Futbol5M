@@ -39,7 +39,7 @@
                             <h3 class="panel-title">Ingrese</h3>
                         </div>
                         <div class="panel-body">
-                            <form method="get" action="LoginServlet">
+                            <form method="post" action="LoginServlet">
                                 <fieldset>
                                     <div class="form-group">
                                         <input class="form-control" placeholder="Usuario" name="usuario" type="text">

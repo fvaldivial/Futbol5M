@@ -36,10 +36,10 @@
                 <div class="col-md-6">
                     <div class="panel with-nav-tabs panel-info">
                         <div class="panel-heading">
-                            
+
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#tab1info" data-toggle="tab">Editar perfil</a></li>
-                                
+
                                 <li><a href="InscServlet?usuario=<%=usu.getUsuario()%>">Crear Partido</a></li>
                                 <li class="dropdown">
                                     <a href="#" data-toggle="dropdown">Inscripcion<span class="caret"></span></a>
@@ -48,13 +48,13 @@
                                         <li><a href="PartInsServlet">Forma solidaria</a></li>
                                     </ul>
                                 </li>
-                                <form action="LoginServlet" method="Post">
+                                <form action="LoginServlet" method="get">
                                     <li><button type="submit" class="btn btn-default">Salir</button></li>
-                                    
+
                                 </form>
-                                
+
                             </ul>
-                            
+
                             </span>
                         </div>
                     </div>
@@ -93,9 +93,11 @@
                                         <% for (int i = 0; i < b.size(); i++) {%>
 
                                         <tr>
-                                            <td>id : <%= ((PartidoBean) b.get(i)).getId() %> </td>
-                                            <td>cancha : <%= ((PartidoBean) b.get(i)).getCancha() %></td>
-                                            <td> <a href="CancelarServlet?usuario=<%=usu.getUsuario()%>&partido=<%=((PartidoBean) b.get(i)).getId()%>" class="btn btn-primary">salir de partido</a></td>
+                                            <td>id : <%= ((PartidoBean) b.get(i)).getId()%> </td>
+                                            <td>cancha : <%= ((PartidoBean) b.get(i)).getCancha()%></td>
+                                            <td> <a href="CancelarServlet?partido=<%=((PartidoBean) b.get(i)).getId()%>" class="btn btn-primary">salir de partido</a></td>
+                                            <%-- Esto lleva al Servlet Prepago para pasar los datos a la pagina pago.jsp --%>
+                                            <td> <a href="PagoServlet?partido=<%=b.get(i)%>" class="btn btn-primary">Realizar pago</a></td>  
                                         </tr>
 
                                         <%}%>
@@ -119,7 +121,7 @@
                                 </table>
 
                                 <a href="#" class="btn btn-primary">Modificar datos</a>
-                                         <a href="index.html" class="btn btn-primary">Salir a inicio</a>
+                                <a href="index.html" class="btn btn-primary">Salir a inicio</a>
                             </div>
                         </div>
                     </div>

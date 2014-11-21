@@ -25,15 +25,35 @@ import pe.edu.bean.UsuarioBean;
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 
+    //Este sirve para salir de todo
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+               //Paso 1: recuperar sesion
+        HttpSession s = request.getSession(true);
+
+        //Paso 2: recuperar datos
+        
+
+        //Paso 3: logica
+
+            s.setAttribute("sesion", null);
+
+            RequestDispatcher rd = request.getRequestDispatcher("index.html");
+            rd.forward(request, response);
+                   
+    }
+
+    
+
     //Viene de login.jsp
     //el if verifica si devolvio algo el id de usuario y si es que la contraseña corresponde a la guardada
     //1. Envia a usuario.jsp
     //2. Envia a pagina de error y luego de regreso.
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-         
+ 
             //Paso 1: recuperar sesion
         HttpSession s = request.getSession(true);
 
@@ -85,28 +105,6 @@ public class LoginServlet extends HttpServlet {
             out.println("</html>");
 
         }        
-    }
-
-    
-    //Este sirve para salir de todo
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //Paso 1: recuperar sesion
-        HttpSession s = request.getSession(true);
-
-        //Paso 2: recuperar datos
-        
-
-        //Paso 3: logica
-
-
-
-            s.setAttribute("sesion", null);
-
-
-            RequestDispatcher rd = request.getRequestDispatcher("index.html");
-            rd.forward(request, response);
             
 
     }
