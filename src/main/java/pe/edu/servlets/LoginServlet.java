@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
     
 
     //Viene de login.jsp
-    //el if verifica si devolvio algo el id de usuario y si es que la contraseña corresponde a la guardada
+    //el if verifica i devolvio algo el id de usuario y si es que la contrasena corresponde a la guardada
     //1. Envia a usuario.jsp
     //2. Envia a pagina de error y luego de regreso.
     @Override
@@ -97,7 +97,7 @@ public class LoginServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<div class=\"intro-header\">");
-            out.println("<h1> Ingreso mal la contraseña o el usuario </h1>");
+            out.println("<h1> Ingreso mal la contrasena o el usuario </h1>");
             out.println("<h1> Intentelo nuevamente </h1>");
             out.println("<a href= 'loguin.html'>Intentarlo de nuevo</a>");
             out.println("</div>");

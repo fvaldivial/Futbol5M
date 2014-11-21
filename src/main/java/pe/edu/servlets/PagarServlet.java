@@ -47,7 +47,7 @@ public class PagarServlet extends HttpServlet {
             //el id del partido que se paga sale de la variable p de arriba
             
             //este mensaje deberia salir en el jsp de usuario
-            String mensaje = "Pago realizado con éxito";
+            String mensaje = "Pago realizado con exito";
             
             request.setAttribute("mensaje", mensaje);
             
