@@ -40,11 +40,13 @@ public class PartInsServlet extends HttpServlet {
         
         PartidosIF a = new PartidosDAO();
         
-//        List l = a.obtenerSolidario();
-        List l = new ArrayList();
+        List l = a.obtenerSolidario();
+//        List l = new ArrayList();
+        
         l.add("yainscrito");
         
         for(int i = 0;i<l.size();i++){
+            System.out.println();
             if(l.get(i) == usuario ){
                    esta = true;
             }
