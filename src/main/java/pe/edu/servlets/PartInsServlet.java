@@ -63,7 +63,7 @@ public class PartInsServlet extends HttpServlet {
             out.println("<body>");
             out.println("<div class=\"intro-header\">");
             out.println("<h1> Ya estabas inscrito en la lista solidaria :/ </h1>");
-            out.println("<a href= 'usuario.jsp'>Te avisaremos cuando halla partidos</a>");
+            out.println("<a href= 'usuario.jsp'>Te avisaremos cuando haya partidos</a>");
             out.println("</div>");
             out.println("</body>");
             out.println("</html>");

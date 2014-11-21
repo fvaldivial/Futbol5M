@@ -100,7 +100,13 @@
                                             <%id = ((String) ((PartidoBean) b.get(i)).getFechai());%>
                                             <td> <a href="CancelarServlet?partido=<%=id%>" class="btn btn-primary">salir de partido</a></td>
                                             <%-- Esto lleva al Servlet Prepago para pasar los datos a la pagina pago.jsp --%>
-                                            <td> <a href="PagoServlet?partido=<%=b.get(i)%>" class="btn btn-primary">Realizar pago</a></td>  
+                                            <td>
+                                                <form method="get" action="PagoServlet">
+                                                    <input type="submit" class="btn btn-primary" value="Realizar Pago">
+                                                    <input type="hidden" name="partido" value="<%= b.get(i) %>">
+                                                </form>
+                                                <%-- <a href="PagoServlet?partido=<%=b.get(i)%>" class="btn btn-primary">Realizar pago</a> --%>
+                                            </td>  
                                         </tr>
 
                                         <%}%>

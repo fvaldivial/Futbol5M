@@ -29,7 +29,7 @@ public class PagarServlet extends HttpServlet {
         
         // Pasa el bean de usuario y de partido a la pagina siguiente
         
-        System.out.println("partido de pago" + request.getAttribute("partido").getClass());
+        //System.out.println("partido de pago" + request.getAttribute("partido").getClass());
         
         RequestDispatcher rd = request.getRequestDispatcher("pago.jsp");
         rd.forward(request, response);  
