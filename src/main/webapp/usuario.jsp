@@ -18,8 +18,6 @@
         <link href="css/mine.css" rel="stylesheet">
 
         <%UsuarioBean usu = (UsuarioBean) request.getSession(true).getAttribute("usuario");%>
-        <%String a = (String) request.getAttribute("mensaje");%>
-
 
         <%---  ---%>
 
@@ -98,8 +96,6 @@
                                             <td>id : <%= ((PartidoBean) b.get(i)).getId() %> </td>
                                             <td>cancha : <%= ((PartidoBean) b.get(i)).getCancha() %></td>
                                             <td> <a href="CancelarServlet?usuario=<%=usu.getUsuario()%>&partido=<%=((PartidoBean) b.get(i)).getId()%>" class="btn btn-primary">salir de partido</a></td>
-                                            <%-- Esto lleva al Servlet Prepago para pasar los datos a la pagina pago.jsp --%>
-                                            <td> <a href="PagarServlet?usuario=<%=usu.getUsuario()%>&partido=<%=b.get(i)%>" class="btn btn-primary">Realizar pago</a></td>                                            
                                         </tr>
 
                                         <%}%>

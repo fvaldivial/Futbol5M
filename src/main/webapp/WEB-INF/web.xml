@@ -12,14 +12,6 @@
         <servlet-name>CancelarServlet</servlet-name>
         <servlet-class>pe.edu.servlets.CancelarServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>PagarServlet</servlet-name>
-        <servlet-class>pe.edu.servlets.PagarServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Pagar2Servlet</servlet-name>
-        <servlet-class>pe.edu.servlets.Pagar2Servlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrarServlet</servlet-name>
         <url-pattern>/RegistrarServlet</url-pattern>
@@ -31,14 +23,6 @@
     <servlet-mapping>
         <servlet-name>CancelarServlet</servlet-name>
         <url-pattern>/CancelarServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PagarServlet</servlet-name>
-        <url-pattern>/PagarServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Pagar2Servlet</servlet-name>
-        <url-pattern>/Pagar2Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
