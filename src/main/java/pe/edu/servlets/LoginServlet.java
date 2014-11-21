@@ -81,8 +81,9 @@ public class LoginServlet extends HttpServlet {
                 
             s.setAttribute("sesion", "escribi algo");
             s.setAttribute("usuario", u);
-//            System.out.println("dni : " + u.getDni());
-//            System.out.println("usuario : " + u.getUsuario());
+            System.out.println("asdasdasd"+u.getFoto());
+         System.out.println("dni : " + u.getDni());
+            System.out.println("usuario : " + u.getUsuario());
 
             RequestDispatcher rd = request.getRequestDispatcher("usuario.jsp");
             rd.forward(request, response);
@@ -99,7 +100,7 @@ public class LoginServlet extends HttpServlet {
             out.println("<div class=\"intro-header\">");
             out.println("<h1> Ingreso mal la contrasena o el usuario </h1>");
             out.println("<h1> Intentelo nuevamente </h1>");
-            out.println("<a href= 'loguin.html'>Intentarlo de nuevo</a>");
+            out.println("<a href= 'loguin.jsp'>Intentarlo de nuevo</a>");
             out.println("</div>");
             out.println("</body>");
             out.println("</html>");

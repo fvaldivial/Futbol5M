@@ -63,7 +63,7 @@ public class Utilitarios {
         MongoCredential credential = null;
         
         credential = MongoCredential.createMongoCRCredential("futbol5", "futbol5", "futbol5".toCharArray());
-        mc = new MongoClient(new ServerAddress("ds047800.mongolab.com", 47800), Arrays.asList(credential));
+       mc = new MongoClient(new ServerAddress("ds047800.mongolab.com", 47800), Arrays.asList(credential));
 
         //mc = new MongoClient("localhost", 27017);
         DB = mc.getDB("futbol5");

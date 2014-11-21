@@ -22,6 +22,7 @@
         <%---  ---%>
 
         <% List b = usu.getPartidos();%>
+        <% String id = "";%>
 
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -64,7 +65,7 @@
 
         <div class="intro-header">
 
-
+<% String foto=usu.getFoto();%>
 
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
 
@@ -76,7 +77,8 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3 col-lg-3 " align="center">
-                                <img alt="User Pic" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQPPpGPpBU-CeawafyfRtPZZ8bHvSlKfks3aqf3ZMkrrz8QXXF8FQ" class="img-circle" width="130px" height ="100px "> </div>
+                                
+                                <img alt="User Pic" src="<%= foto %>" class="img-circle" width="130px" height ="100px "> </div>
 
                             <div class=" col-md-9 col-lg-9 "> 
                                 <table class="table table-user-information">
@@ -95,7 +97,8 @@
                                         <tr>
                                             <td>id : <%= ((PartidoBean) b.get(i)).getId()%> </td>
                                             <td>cancha : <%= ((PartidoBean) b.get(i)).getCancha()%></td>
-                                            <td> <a href="CancelarServlet?partido=<%=((PartidoBean) b.get(i)).getId()%>" class="btn btn-primary">salir de partido</a></td>
+                                            <%id = ((String) ((PartidoBean) b.get(i)).getFechai());%>
+                                            <td> <a href="CancelarServlet?partido=<%=id%>" class="btn btn-primary">salir de partido</a></td>
                                             <%-- Esto lleva al Servlet Prepago para pasar los datos a la pagina pago.jsp --%>
                                             <td> <a href="PagoServlet?partido=<%=b.get(i)%>" class="btn btn-primary">Realizar pago</a></td>  
                                         </tr>

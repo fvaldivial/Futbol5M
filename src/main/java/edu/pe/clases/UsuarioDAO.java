@@ -35,7 +35,7 @@ public class UsuarioDAO implements UsuarioIF {
         credential = MongoCredential.createMongoCRCredential("futbol5", "futbol5", "futbol5".toCharArray());
         mc = new MongoClient(new ServerAddress("ds047800.mongolab.com", 47800), Arrays.asList(credential));
 
-        //mc = new MongoClient("localhost", 27017);
+       // mc = new MongoClient("localhost", 27017);
         DB = mc.getDB("futbol5");
         usuarios = DB.getCollection("users");
         //System.out.println("okokokk");
@@ -55,7 +55,7 @@ public class UsuarioDAO implements UsuarioIF {
 //            String passwordHash = pass;
         BasicDBObject user = new BasicDBObject();
 
-        user.append("_id", u.getUsuario()).append("dni", u.getDni()).append("password", passwordHash).append("nombre", u.getNombre()).append("telf", u.getTelefono()).append("email", u.getEmail()).append("direccion", u.getDireccion());
+        user.append("_id", u.getUsuario()).append("foto", u.getFoto()).append("dni", u.getDni()).append("password", passwordHash).append("nombre", u.getNombre()).append("telf", u.getTelefono()).append("email", u.getEmail()).append("direccion", u.getDireccion());
 
         if (u.getEmail() != null && !u.getEmail().equals("")) {
             // Si es que el email no esta en blanco, lo graba
@@ -97,6 +97,7 @@ public class UsuarioDAO implements UsuarioIF {
         u.setNombre((String) d.get("nombre"));
         u.setTelefono((String) d.get("telf"));
         u.setDireccion((String) d.get("direccion"));
+        
 
         return u;
     }

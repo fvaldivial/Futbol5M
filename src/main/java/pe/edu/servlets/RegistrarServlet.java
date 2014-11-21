@@ -45,6 +45,7 @@ public class RegistrarServlet extends HttpServlet {
         u.setEmail(request.getParameter("email"));
         u.setDireccion(request.getParameter("direccion"));
         u.setUsuario(request.getParameter("usuario"));
+        u.setFoto(request.getParameter("foto"));
                
         String pass = request.getParameter("password");
         String passc = request.getParameter("password_confirmation");
@@ -64,7 +65,7 @@ public class RegistrarServlet extends HttpServlet {
             out.println("<body>");
             out.println("<div class=\"intro-header\">");
             out.println("<h1> Usuario creado correctamente </h1>");
-            out.println("<a href= 'loguin.html'>Ya puedes comenzar</a>");
+            out.println("<a href= 'loguin.jsp'>Ya puedes comenzar</a>");
             out.println("</div>");
             out.println("</body>");
             out.println("</html>");

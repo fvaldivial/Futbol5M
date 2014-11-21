@@ -30,8 +30,8 @@ public class PartidosDAO implements PartidosIF {
     private void inicializar() throws UnknownHostException {
 
         credential = MongoCredential.createMongoCRCredential("futbol5", "futbol5", "futbol5".toCharArray());
-        mc = new MongoClient(new ServerAddress("ds047800.mongolab.com", 47800), Arrays.asList(credential));
-
+      mc = new MongoClient(new ServerAddress("ds047800.mongolab.com", 47800), Arrays.asList(credential));
+       // mc = new MongoClient("localhost",27017);
         DB = mc.getDB("futbol5");
         partidos = DB.getCollection("partidos");
         canchas = DB.getCollection("canchas");
@@ -70,8 +70,9 @@ public class PartidosDAO implements PartidosIF {
             Logger.getLogger(PartidosDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         BasicDBObject partido = new BasicDBObject();
+        String borrar = pb.getFechai();
         //verificar si la lista de jugadores se inserta correctamente
-        partido.append("cancha", pb.getCancha()).append("admin", pb.getAdmin()).append("turno", pb.getTurno()).append("fechai", pb.getFechai());
+        partido.append("cancha", pb.getCancha()).append("admin", pb.getAdmin()).append("turno", pb.getTurno()).append("fechai", pb.getFechai()).append("borrar", borrar);
         partidos.insert(partido);
     }
 
@@ -171,7 +172,7 @@ public class PartidosDAO implements PartidosIF {
             //como se va a determinar que partido se cancela? bajo que pk?
             inicializar();
             BasicDBObject query = new BasicDBObject();
-            query.put("_id", id);
+            query.put("borrar", id);
             partidos.remove(query);
         } catch (UnknownHostException ex) {
             Logger.getLogger(PartidosDAO.class.getName()).log(Level.SEVERE, null, ex);
