@@ -5,10 +5,10 @@
     <groupId>com.futbol5</groupId>
     <artifactId>Futbol5M</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+ 
 
     <name>Futbol5M</name>
-
+  <url>http://maven.apache.org</url>
     <properties>
         <tomcat.version>7.0.34</tomcat.version>
     </properties>
